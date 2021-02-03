@@ -31,4 +31,12 @@ public class WebConfig {
     public static String navToPage(String pageName) {
         return read("ts.gurock_url") + read(pageName);
     }
+
+    public static String getProjectName() {return read("ts.projectName"); }
+
+    public static String getProjectAnnouncement() {return read("ts.projectAnnouncement"); }
+
+    public static String getFullName() {return read("ts.fullName"); }
+
+    public static String getEmail() {return read("ts.email"); }
 }
