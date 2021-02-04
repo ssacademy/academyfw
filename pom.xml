@@ -32,6 +32,13 @@
         </plugins>
     </build>
     <dependencies>
+        <!--Custom web driver https://github.com/bonigarcia/webdrivermanager        -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.3.1</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
