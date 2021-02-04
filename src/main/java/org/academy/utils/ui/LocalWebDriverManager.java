@@ -1,5 +1,7 @@
 package org.academy.utils.ui;
 
+import io.github.bonigarcia.wdm.config.DriverManagerType;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,11 +31,8 @@ public class LocalWebDriverManager {
         switch (browser) {
             default:
             case "chrome":
-                ChromeOptions options = new ChromeOptions();
-                String os = System.getProperty("os.name").toLowerCase().substring(0, 3);
-                String chromeBinary = "src/main/resources/chromedriver" + (os.equals("win") ? ".exe" : "");
-                System.setProperty("webdriver.chrome.driver", chromeBinary);
-                WebDriver chromeWebDriver = new ChromeDriver(options);
+                ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
+                WebDriver chromeWebDriver = new ChromeDriver();
 
                 chromeWebDriver.manage().window().maximize();
                 return chromeWebDriver;
