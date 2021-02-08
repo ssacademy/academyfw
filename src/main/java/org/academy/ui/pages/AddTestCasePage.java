@@ -1,6 +1,7 @@
 package org.academy.ui.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class AddTestCasePage extends AbstractPage {
     public AddTestCasePage() {
@@ -11,10 +12,10 @@ public class AddTestCasePage extends AbstractPage {
         super(navigate, navigateToUrl);
     }
 
-    private static final By titleField = By.xpath("//form[@class='inline form-inline addForm']//input[@type='text']");
-    private static final By acceptBtn = By.xpath("//span[@class='buttons']//button[@type='submit']");
+    private static final By titleField = By.xpath("//input[@id='title']");
+    private static final By acceptBtn = By.xpath("//button[@id='accept']");
     private static final By testCaseLink = By.xpath("//a[@id='navigation-suites']");
-    private static final By addTestCaseBtn = By.xpath("//a[contains(text(),'Add Case')]");
+    private static final By addTestCaseBtn = By.xpath("//a[@id='sidebar-cases-add']");
 
     public AddTestCasePage clickOnTestCaseLink() {
         waitUntilElementIsClickable(testCaseLink).click();
@@ -33,5 +34,9 @@ public class AddTestCasePage extends AbstractPage {
     public AddTestCasePage clickOnAcceptBtn() {
         waitUntilElementIsClickable(acceptBtn).click();
         return this;
+    }
+
+    public WebElement getAcceptBtn() {
+        return webDriver.findElement(acceptBtn);
     }
 }

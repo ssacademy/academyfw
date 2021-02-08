@@ -3,7 +3,6 @@ package org.academy.ui;
 import org.academy.ui.pages.AddTestCasePage;
 import org.academy.ui.pages.MainPage;
 import org.academy.ui.steps.LoginSteps;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,9 +27,12 @@ public class AddTestCaseTest extends BaseTest {
     @Test
     public void addTestCaseTest() throws InterruptedException {
         AddTestCasePage addTestCasePage = mainPage.clickOnProject()
-                .clickOnTestCaseLink()
-                .clickOnAddTestCaseBtn()
-                .fillTitleField("Test case Test");
-        addTestCasePage.clickOnAcceptBtn();
+                .clickOnTestCaseLink();
+            addTestCasePage
+                    .clickOnAddTestCaseBtn()
+                    .fillTitleField("Test case Test");
+            addTestCasePage.scrollToElement(webDriver, addTestCasePage.getAcceptBtn());
+            addTestCasePage
+                    .clickOnAcceptBtn();
     }
 }
