@@ -16,7 +16,7 @@ public class MainPage extends AbstractPage {
     private static final By logout = By.xpath("//a[@id='navigation-user-logout']");
     private static final By addProjectBtn = By.xpath("//a[@id='sidebar-projects-add']");
     private static final By administrationLink = By.xpath("//a[@id='navigation-admin']");
-    private static final By projectLink = By.xpath("//div[@id='project-7']//div[@class='column summary-column flex-projects-2']//div[@class='summary-title text-ppp']//a[contains(text(),'TestProject')]");
+    private static final By projectLink = By.xpath("//div[@class='summary-title text-ppp']//a[contains(text(),'TestProject')]");
 
     public MainPage clickOnMyUsername() {
         waitUntilElementIsClickable(usernameLink).click();
