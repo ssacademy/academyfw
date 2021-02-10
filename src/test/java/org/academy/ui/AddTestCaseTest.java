@@ -3,7 +3,6 @@ package org.academy.ui;
 import org.academy.ui.pages.AddTestCasePage;
 import org.academy.ui.pages.MainPage;
 import org.academy.ui.steps.LoginSteps;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,13 +14,6 @@ public class AddTestCaseTest extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void precondition() {
         mainPage = loginSteps.makeLogin();
-    }
-
-    @AfterSuite
-    public void teardown() {
-        if (webDriver != null) {
-            webDriver.quit();
-        }
     }
 
     @Test
