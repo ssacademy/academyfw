@@ -1,7 +1,5 @@
 package org.academy.ui;
 
-
-import org.academy.ui.pages.AddMilestonePage;
 import org.academy.ui.pages.MainPage;
 import org.academy.ui.steps.LoginSteps;
 import org.academy.utils.ui.WebConfig;
@@ -20,16 +18,15 @@ public class AddMilestoneTest extends BaseTest {
     @Test
     public void addMilestoneTest() {
         mainPage
-                .clickOnProjectLink2()
+                .clickOnTestProject()
                 .clickOnAddMilestoneBtn()
                 .fillMilestoneNameField(WebConfig.getMilestoneName())
                 .fillMilestoneReferenceField(WebConfig.getMilestoneReference())
                 .fillMilestoneDescriptionField(WebConfig.getMilestoneDescription())
                 .clickOnStartDate()
-                .clickOnHighlightedDate()
+                .chooseAndClickOnStartDate()
                 .clickOnEndDate()
-                .clickOnHighlightedDate()
+                .chooseAndClickOnEndDate()
                 .clickOnMilestoneAcceptBtn();
-
     }
 }
