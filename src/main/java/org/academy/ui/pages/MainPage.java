@@ -47,5 +47,10 @@ public class MainPage extends AbstractPage {
         waitUntilElementIsClickable(projectLink).click();
         return  new AddTestCasePage();
     }
+
+    public AddMilestonePage clickOnTestProject() {
+        waitUntilElementIsClickable(projectLink).click();
+        return new AddMilestonePage();
+    }
 }
 
