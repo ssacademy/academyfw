@@ -39,4 +39,11 @@ public class WebConfig {
     public static String getFullName() {return read("ts.fullName"); }
 
     public static String getEmail() {return read("ts.email"); }
+
+    public static String getMilestoneName() {return read("ts.milestoneName"); }
+
+    public static String getMilestoneReference() {return read("ts.milestoneReference"); }
+
+    public static String getMilestoneDescription() {return read("ts.milestoneDescription"); }
+
 }
