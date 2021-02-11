@@ -15,18 +15,17 @@ public class EditProjectTest extends BaseTest {
     private LoginSteps loginSteps = new LoginSteps();
     private ProjectSteps projectSteps = new ProjectSteps();
 
-    private MainPage mainPage;
     private EditProjectPage editProjectPage;
 
     @BeforeMethod(alwaysRun = true)
     public void precondtion() {
-        mainPage = loginSteps.makeLogin();
+        loginSteps.makeLogin();
         editProjectPage = projectSteps.openEditProjectPage();
     }
 
     @Test
     public void editSuiteOfProjectTest() throws InterruptedException {
-        editProjectPage.chooseTestSuite(TestSuite.SINGLEALLCASES)
+        editProjectPage.chooseTestSuite(TestSuite.MULTIPLE)
                 .scrollToAcceptBtn()
                 .clickOnAcceptBtn();
     }
