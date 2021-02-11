@@ -1,5 +1,6 @@
 package org.academy.ui.pages;
 
+import org.academy.ui.pages.administration.ProjectsPage;
 import org.academy.ui.pages.project.TestSuite;
 import org.openqa.selenium.By;
 
@@ -50,8 +51,8 @@ public class AddProjectPage extends AbstractPage {
         return this;
     }
 
-    public AddProjectPage clickOnAcceptBtn(){
+    public ProjectsPage clickOnAcceptBtn(){
         waitUntilElementIsClickable(acceptBtn).click();
-        return this;
+        return new ProjectsPage();
     }
 }

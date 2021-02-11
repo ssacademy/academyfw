@@ -18,14 +18,10 @@ public class EditProjectTest extends BaseTest {
     private MainPage mainPage;
     private EditProjectPage editProjectPage;
 
-    @BeforeClass(alwaysRun = true)
-    public void login() {
-        mainPage = loginSteps.makeLogin();
-    }
-
     @BeforeMethod(alwaysRun = true)
     public void precondtion() {
-        editProjectPage = projectSteps.openEditProjectPage(WebConfig.getProjectName());
+        mainPage = loginSteps.makeLogin();
+        editProjectPage = projectSteps.openEditProjectPage();
     }
 
     @Test
@@ -35,7 +31,7 @@ public class EditProjectTest extends BaseTest {
                 .clickOnAcceptBtn();
     }
 
-    @Test
+    @Test(groups = "editAnnouncement")
     public void clearAnnouncementTest() throws InterruptedException {
         editProjectPage
                 .clearAnnouncementField()
@@ -43,7 +39,7 @@ public class EditProjectTest extends BaseTest {
                 .clickOnAcceptBtn();
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = "editAnnouncement")
     public void updateAnnouncementTest() throws InterruptedException {
         editProjectPage
                 .fillAnnouncementField(WebConfig.getProjectAnnouncement())
