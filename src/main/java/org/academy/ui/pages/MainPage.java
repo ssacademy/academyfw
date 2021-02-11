@@ -1,5 +1,6 @@
 package org.academy.ui.pages;
 
+import org.academy.ui.pages.administration.AdministrationPage;
 import org.openqa.selenium.By;
 
 public class MainPage extends AbstractPage {
