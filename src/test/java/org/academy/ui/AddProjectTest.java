@@ -19,11 +19,11 @@ public class AddProjectTest extends BaseTest {
 
     @Test
     public void addProjectTest() throws InterruptedException {
-        AddProjectPage addProjectPage = mainPage.clickOnAddProjectBtn()
+        mainPage.clickOnAddProjectBtn()
                 .fillNameField(WebConfig.getProjectName())
-                .fillAnnouncementField(WebConfig.getProjectAnnouncement());
-                addProjectPage.scrollToElement(webDriver, webDriver.findElement(By.id("accept")));
-                addProjectPage.clickOnAcceptBtn();
+                .fillAnnouncementField(WebConfig.getProjectAnnouncement())
+                .scrollToAcceptBtn()
+                .clickOnAcceptBtn();
 
     }
 }
