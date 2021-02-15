@@ -51,7 +51,7 @@ public class AddProjectPage extends AbstractPage {
         return this;
     }
 
-    public ProjectsPage clickOnAcceptBtn(){
+    public ProjectsPage clickOnAcceptBtn() {
         waitUntilElementIsClickable(acceptBtn).click();
         return new ProjectsPage();
     }
