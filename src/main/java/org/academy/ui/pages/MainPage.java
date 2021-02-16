@@ -19,7 +19,7 @@ public class MainPage extends AbstractPage {
     private static final By projectLink = By.xpath("//div[@class='summary-title text-ppp']//a[contains(text(),'TestProject')]");
     private static final By navigationUser = By.xpath("//a[@id='navigation-user']//span[@class='caret']");
     private static final By navigationUserSettings = By.xpath("//a[@id='navigation-user-settings']");
-    
+
     public MainPage clickOnMyUsername() {
         waitUntilElementIsClickable(usernameLink).click();
         return this;
@@ -48,6 +48,16 @@ public class MainPage extends AbstractPage {
     public AddTestCasePage clickOnProject() {
         waitUntilElementIsClickable(projectLink).click();
         return  new AddTestCasePage();
+    }
+
+    public MainPage clcikOnNavigationUser() {
+        waitUntilElementIsClickable(navigationUser).click();
+        return new MainPage();
+    }
+
+    public SettingsPage clickOnNavigationUserSettings() {
+        waitUntilElementIsClickable(navigationUserSettings).click();
+        return new SettingsPage();
     }
 }
 
