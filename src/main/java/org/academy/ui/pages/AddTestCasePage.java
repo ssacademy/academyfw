@@ -31,12 +31,13 @@ public class AddTestCasePage extends AbstractPage {
         return this;
     }
 
-    public AddTestCasePage clickOnAcceptBtn() {
-        waitUntilElementIsClickable(acceptBtn).click();
+    public AddTestCasePage scrollToAcceptBtn() throws InterruptedException {
+        scrollToElement(webDriver, webDriver.findElement(acceptBtn));
         return this;
     }
 
-    public WebElement getAcceptBtn() {
-        return webDriver.findElement(acceptBtn);
+    public AddTestCasePage clickOnAcceptBtn() {
+        waitUntilElementIsClickable(acceptBtn).click();
+        return this;
     }
 }

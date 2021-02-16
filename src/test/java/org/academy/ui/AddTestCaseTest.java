@@ -18,13 +18,11 @@ public class AddTestCaseTest extends BaseTest {
 
     @Test
     public void addTestCaseTest() throws InterruptedException {
-        AddTestCasePage addTestCasePage = mainPage.clickOnProject()
-                .clickOnTestCaseLink();
-            addTestCasePage
-                    .clickOnAddTestCaseBtn()
-                    .fillTitleField("Test case Test");
-            addTestCasePage.scrollToElement(webDriver, addTestCasePage.getAcceptBtn());
-            addTestCasePage
-                    .clickOnAcceptBtn();
+        mainPage.clickOnProject()
+                .clickOnTestCaseLink()
+                .clickOnAddTestCaseBtn()
+                .fillTitleField("Test case Test")
+                .scrollToAcceptBtn()
+                .clickOnAcceptBtn();
     }
 }

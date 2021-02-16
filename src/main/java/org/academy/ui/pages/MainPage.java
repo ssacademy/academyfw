@@ -1,5 +1,7 @@
 package org.academy.ui.pages;
 
+import org.academy.ui.pages.administration.AdministrationPage;
+import org.academy.ui.pages.administration.OverviewPage;
 import org.openqa.selenium.By;
 
 public class MainPage extends AbstractPage {
@@ -33,9 +35,9 @@ public class MainPage extends AbstractPage {
         return new AddProjectPage();
     }
 
-    public AdministrationPage clickOnAdministrationLink() {
+    public OverviewPage clickOnAdministrationLink() {
         waitUntilElementIsClickable(administrationLink).click();
-        return new AdministrationPage();
+        return new OverviewPage();
     }
 
     public AddSuitePage clickOnProjectLink() {
@@ -46,6 +48,11 @@ public class MainPage extends AbstractPage {
     public AddTestCasePage clickOnProject() {
         waitUntilElementIsClickable(projectLink).click();
         return  new AddTestCasePage();
+    }
+
+    public AddMilestonePage clickOnTestProject() {
+        waitUntilElementIsClickable(projectLink).click();
+        return new AddMilestonePage();
     }
 }
 

@@ -7,10 +7,14 @@ import org.academy.utils.ui.WebConfig;
 
 @Slf4j
 public class LoginSteps {
+    private MainPage mainPage;
+
     public MainPage makeLogin() {
-        return new LoginPage(true, WebConfig.getAccountUrl())
-                .fillLoginField(WebConfig.getLogin())
-                .fillPassField(WebConfig.getPassword())
-                .clickOnLoginButton();
+        if (mainPage == null)
+            mainPage = new LoginPage(true, WebConfig.getAccountUrl())
+                    .fillLoginField(WebConfig.getLogin())
+                    .fillPassField(WebConfig.getPassword())
+                    .clickOnLoginButton();
+        return mainPage;
     }
 }
