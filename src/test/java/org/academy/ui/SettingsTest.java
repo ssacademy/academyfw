@@ -1,13 +1,14 @@
 package org.academy.ui;
 
-import org.academy.ui.pages.AddTestCasePage;
 import org.academy.ui.pages.MainPage;
+import org.academy.ui.pages.SettingsPage;
 import org.academy.ui.steps.LoginSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddTestCaseTest extends BaseTest {
+public class SettingsTest extends BaseTest {
 
+    private SettingsPage settingsPage;
     private LoginSteps loginSteps = new LoginSteps();
     private MainPage mainPage;
 
@@ -17,12 +18,10 @@ public class AddTestCaseTest extends BaseTest {
     }
 
     @Test
-    public void addTestCaseTest() throws InterruptedException {
-        mainPage.clickOnProject()
-                .clickOnTestCaseLink()
-                .clickOnAddTestCaseBtn()
-                .fillTitleField("Test case Test")
-                .scrollToAcceptBtn()
-                .clickOnAcceptBtn();
+    public void checkEmail() {
+        settingsPage = mainPage
+                .clcikOnNavigationUser()
+                .clickOnNavigationUserSettings()
+                .checkEmail();
     }
 }
