@@ -6,7 +6,6 @@ import org.academy.ui.pages.project.TestSuite;
 import org.academy.ui.steps.DeleteProjectSteps;
 import org.academy.ui.steps.LoginSteps;
 import org.academy.ui.steps.AddProjectSteps;
-import org.academy.utils.ui.WebConfig;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -44,7 +43,7 @@ public class EditProjectTest extends BaseTest {
     @Test(groups = "editAnnouncement")
     public void updateAnnouncementTest() {
         projectsPage = editProjectPage
-                .fillAnnouncementField(WebConfig.getProjectAnnouncement())
+                .fillAnnouncementField(getProjectAnnouncement())
                 .clickOnAcceptBtn();
     }
 

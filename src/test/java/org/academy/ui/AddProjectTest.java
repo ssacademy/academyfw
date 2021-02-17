@@ -2,7 +2,6 @@ package org.academy.ui;
 
 import org.academy.ui.pages.MainPage;
 import org.academy.ui.steps.LoginSteps;
-import org.academy.utils.ui.WebConfig;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,8 +17,8 @@ public class AddProjectTest extends BaseTest {
     @Test
     public void addProjectTest() {
         mainPage.clickOnAddProjectBtn()
-                .fillNameField(WebConfig.getProjectName())
-                .fillAnnouncementField(WebConfig.getProjectAnnouncement())
+                .fillNameField(getProjectName())
+                .fillAnnouncementField(getProjectAnnouncement())
                 .clickOnAcceptBtn();
     }
 }
