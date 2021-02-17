@@ -20,7 +20,6 @@ public class ProjectSteps extends Steps {
                 .clickOnAddProjectBtn()
                 .fillNameField(name)
                 .fillAnnouncementField(announcement)
-                .scrollToAcceptBtn()
                 .clickOnAcceptBtn();
     }
 
