@@ -16,11 +16,10 @@ public class AddProjectTest extends BaseTest {
     }
 
     @Test
-    public void addProjectTest() throws InterruptedException {
+    public void addProjectTest() {
         mainPage.clickOnAddProjectBtn()
                 .fillNameField(WebConfig.getProjectName())
                 .fillAnnouncementField(WebConfig.getProjectAnnouncement())
-                .scrollToAcceptBtn()
                 .clickOnAcceptBtn();
     }
 }
