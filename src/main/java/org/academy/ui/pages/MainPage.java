@@ -19,6 +19,9 @@ public class MainPage extends AbstractPage {
     private static final By addProjectBtn = By.xpath("//a[@id='sidebar-projects-add']");
     private static final By administrationLink = By.xpath("//a[@id='navigation-admin']");
     private static final By projectLink = By.xpath("//div[@class='summary-title text-ppp']//a[contains(text(),'TestProject')]");
+    private static final By navigationUser = By.xpath("//a[@id='navigation-user']//span[@class='caret']");
+    private static final By navigationUserSettings = By.xpath("//a[@id='navigation-user-settings']");
+    private static final By project = By.xpath("//a[@href='index.php?/projects/overview/20'][contains(.,'TestProject')]");
 
     public MainPage clickOnMyUsername() {
         waitUntilElementIsClickable(usernameLink).click();
@@ -53,6 +56,25 @@ public class MainPage extends AbstractPage {
     public AddMilestonePage clickOnTestProject() {
         waitUntilElementIsClickable(projectLink).click();
         return new AddMilestonePage();
+    }
+
+    public MainPage clcikOnNavigationUser() {
+        waitUntilElementIsClickable(navigationUser).click();
+        return new MainPage();
+    }
+
+    public SettingsPage clickOnNavigationUserSettings() {
+        waitUntilElementIsClickable(navigationUserSettings).click();
+        return new SettingsPage();
+    }
+    public MainPage scrollToProject() throws InterruptedException {
+        scrollToElement(webDriver, webDriver.findElement(project));
+        return this;
+    }
+    public RunsPage clickOnProjectLnk(){
+        waitUntilElementIsClickable(project)
+                .click();
+        return new RunsPage();
     }
 }
 
