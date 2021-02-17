@@ -9,14 +9,12 @@ import java.util.List;
 
 public class WebHelpers extends WebWaiters {
 
-	public void scrollToElement(WebDriver driver, WebElement element) throws InterruptedException {
+	public void scrollToElement(WebDriver driver, WebElement element) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		Thread.sleep(500);
 	}
 
-	public void scrollWindowBy(WebDriver driver, int shiftPixels) throws InterruptedException {
+	public void scrollWindowBy(WebDriver driver, int shiftPixels) {
 		((JavascriptExecutor) driver).executeScript(String.format("window.scrollBy(0,%s);", shiftPixels));
-		Thread.sleep(500);
 	}
 
 	public void switchWindowTab(WebDriver driver, int windowInQueue) {
