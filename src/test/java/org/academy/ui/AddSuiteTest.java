@@ -17,7 +17,7 @@ public class AddSuiteTest extends BaseTest {
     }
 
     @Test
-    public void addSuiteTest() throws InterruptedException {
+    public void addSuiteTest() {
         AddSuitePage addSuitePage = mainPage.clickOnProjectLink()
                 .clickOnTestCasesLink();
         try {
