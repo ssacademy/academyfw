@@ -1,12 +1,12 @@
 package org.academy.ui;
 
-import org.academy.ui.pages.AddSuitePage;
+import org.academy.ui.pages.SuitePage;
 import org.academy.ui.pages.MainPage;
 import org.academy.ui.steps.LoginSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddSuiteTest extends BaseTest {
+public class SuiteTest extends BaseTest {
 
     private LoginSteps loginSteps = new LoginSteps();
     private MainPage mainPage;
@@ -18,24 +18,24 @@ public class AddSuiteTest extends BaseTest {
 
     @Test
     public void addSuiteTest() {
-        AddSuitePage addSuitePage = mainPage.clickOnProjectLink()
+        SuitePage suitePage = mainPage.clickOnProjectLink()
                 .clickOnTestCasesLink();
         try {
-            addSuitePage.clickOnAddSectionBtn()
+            suitePage.clickOnAddSectionBtn()
                     .fillNameField("Test Section")
                     .fillDescriptionField("Test Description");
-            addSuitePage.clickOnAcceptBtn();
+            suitePage.clickOnAcceptBtn();
 
         } catch (RuntimeException e) {
-            addSuitePage.clickOnAddSectionLink()
+            suitePage.clickOnAddSectionLink()
                     .fillNameField("Test Section")
                     .fillDescriptionField("Test Description");
-            addSuitePage.clickOnAcceptBtn();
-            addSuitePage.refreshPage();
+            suitePage.clickOnAcceptBtn();
+            suitePage.refreshPage();
         } finally {
-            addSuitePage.waitUntilElementIsClickable(addSuitePage.getSectionTitle());
-            addSuitePage.placeCursorOverElement();
-            addSuitePage
+            suitePage.waitUntilElementIsClickable(suitePage.getSectionTitle());
+            suitePage.placeCursorOverElement();
+            suitePage
                     .clickOnDeleteBtn()
                     .clickOnConfirmDeleteCheckBox()
                     .clickOnOkBtn();
