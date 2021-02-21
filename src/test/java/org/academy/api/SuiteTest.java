@@ -10,7 +10,7 @@ public class SuiteTest extends BaseTest {
 
     @Test
     public void getSuiteTitle() {
-        String suiteTitle = String.valueOf(suiteRequests.getAllSuitesRequest().get("title"));
-        assertThat(suiteTitle).isEqualTo("MySuite1").as("Suite title need to be 'MySuite1'");
+        String suiteTitle = String.valueOf(suiteRequests.getAllSuitesRequest().get("name"));
+        assertThat(suiteTitle).isEqualTo("Master").as("Suite name need to be 'Master'");
     }
 }
