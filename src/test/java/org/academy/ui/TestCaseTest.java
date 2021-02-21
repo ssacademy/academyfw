@@ -5,7 +5,7 @@ import org.academy.ui.steps.LoginSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddTestCaseTest extends BaseTest {
+public class TestCaseTest extends BaseTest {
 
     private final LoginSteps loginSteps = new LoginSteps();
     private MainPage mainPage;
