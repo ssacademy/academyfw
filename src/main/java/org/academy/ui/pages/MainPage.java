@@ -17,7 +17,7 @@ public class MainPage extends AbstractPage {
     private static final By logout = By.xpath("//a[@id='navigation-user-logout']");
     private static final By addProjectBtn = By.xpath("//a[@id='sidebar-projects-add']");
     private static final By administrationLink = By.xpath("//a[@id='navigation-admin']");
-    private static final By projectLink = By.xpath("//div[@class='summary-title text-ppp']//a[contains(text(),'UI Suite Tests')]");
+    private static final By projectLink = By.xpath("//a[contains(text(),'UI Suite Tests')]");
     private static final By navigationUser = By.xpath("//a[@id='navigation-user']//span[@class='caret']");
     private static final By navigationUserSettings = By.xpath("//a[@id='navigation-user-settings']");
     private static final By project = By.xpath("//a[@href='index.php?/projects/overview/20'][contains(.,'TestProject')]");
