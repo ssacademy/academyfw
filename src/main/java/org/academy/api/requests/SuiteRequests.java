@@ -14,7 +14,7 @@ public class SuiteRequests extends Requests {
         JSONArray jsonArray = new JSONArray(response.asString());
         return new HashMap<String, Object>() {
             {
-                put("title", ((JSONObject) jsonArray.get(0)).get("title"));
+                put("name", ((JSONObject) jsonArray.get(0)).get("name"));
             }
         };
     }

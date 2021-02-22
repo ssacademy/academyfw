@@ -43,7 +43,18 @@ public class MainPage extends AbstractPage {
     }
 
     public SuitePage clickOnProjectLink() {
-        waitUntilElementIsClickable(projectLink).click();
+        if (webDriver.findElement(projectLink).isDisplayed()) {
+            waitUntilElementIsClickable(projectLink).click();
+        } else {
+            System.err.println("Project 'UI Suite Tests' not found");
+            System.out.println("Creating new project...");
+            waitUntilElementIsClickable(addProjectBtn).click();
+            webDriver.findElement(By.xpath("//input[@id='name']")).sendKeys("UI Suite Tests");
+            webDriver.findElement(By.xpath("//button[@id='accept']")).click();
+            System.out.println("Project 'UI Suite Tests' created");
+            webDriver.findElement(By.xpath("//a[@id='navigation-dashboard']")).click();
+            waitUntilElementIsClickable(projectLink).click();
+        }
         return new SuitePage();
     }
 
