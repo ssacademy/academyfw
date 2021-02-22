@@ -1,10 +1,8 @@
 package org.academy.ui.pages;
 
+import org.academy.MainConfig;
 import org.openqa.selenium.By;
-import org.academy.ui.*;
-
 import static org.testng.Assert.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
 
 public class SettingsPage extends AbstractPage {
 
@@ -20,7 +18,7 @@ public class SettingsPage extends AbstractPage {
     }
 
     public String actualEmail() {
-        return "ssacd1@mailforspam.com";
+        return MainConfig.getEmail();
     }
 
     public SettingsPage checkEmail() {
