@@ -10,9 +10,11 @@ import org.json.JSONObject;
 public class ProjectRequests extends Requests {
     private final ProjectPayloads projectPayloads = new ProjectPayloads();
 
-    public Map<String, Object> createProjectRequest(String projectName) {
+    public Map<String, Object> createProjectRequest(String projectName, String announcement, boolean showAnnouncement,
+                                                    int... suiteMode) {
         Response response =
-                postMethods.withoutParams(addProjectResource(), projectPayloads.projectPayload(projectName));
+                postMethods.withoutParams(addProjectResource(),
+                        projectPayloads.createProjectPayload(projectName, announcement, showAnnouncement, suiteMode));
 
         JSONObject jsonObject = new JSONObject(response.asString());
         return new HashMap<String, Object>() {
