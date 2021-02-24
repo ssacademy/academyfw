@@ -19,4 +19,15 @@ public class ProjectPayloads extends Payload {
         log.info("payload created = \r\n" + payload);
         return payload;
     }
+
+    public JSONObject projectAllFieldsPayload(String projectName) {
+        JSONObject requestParams = new JSONObject();
+
+        requestParams.put("name", projectName);
+        requestParams.put("announcement", ANNOUNCEMENT);
+        requestParams.put("show_announcement", SHOW_ANNOUNCEMENT);
+        requestParams.put("is_completed", IS_COMPLETED);
+
+        return requestParams;
+    }
 }
