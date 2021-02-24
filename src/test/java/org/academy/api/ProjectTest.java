@@ -11,8 +11,13 @@ public class ProjectTest extends BaseTest {
     @Test
     public void createProjectCase() {
         String projectName = "project_".concat(apiHelpers.getCurrentTimestamp());
+        String projectDescription = dr.getRandomStringStartsUpperCase(5, 5).toString();
+        boolean toShow = true;
+        int suiteMode = 1;
+
         String projectNameFromResponse =
-                String.valueOf(projectRequests.createProjectRequest(projectName).get("role"));
+                String.valueOf(projectRequests.createProjectRequest(projectName, projectDescription, toShow, suiteMode)
+                                              .get("role"));
         assertThat(projectNameFromResponse).isEqualTo(projectName)
                                            .as("Project name from response should be the same as " + projectName);
     }
