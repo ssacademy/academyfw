@@ -1,18 +1,23 @@
 package org.academy.api.payloads;
 
-import org.json.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.academy.api.models.project.ProjectModel;
+import org.academy.api.models.project.ProjectModelImpl;
 
-public class ProjectPayloads {
-    public static final String ANNOUNCEMENT = "This is the description for the project";
-    public static final boolean SHOW_ANNOUNCEMENT = true;
-    public static final boolean IS_COMPLETED = true;
+@Slf4j
+public class ProjectPayloads extends Payload {
 
-    public String projectPayload(String projectName) {
-        return String.format("{\n" +
-                "\t\"name\": \"%s\",\n" +
-                "\t\"announcement\": \"This is the description for the project\",\n" +
-                "\t\"show_announcement\": true\n" +
-                "}", projectName);
+    public String createProjectPayload(String name, String announcement, boolean showAnnouncement, int... suiteMode) {
+
+        ProjectModel projectModel = suiteMode.length > 0
+                ? new ProjectModelImpl()
+                .createProjectWithAllAttributes(name, announcement, showAnnouncement, suiteMode[0])
+                : new ProjectModelImpl()
+                .createProjectWithoutSuite(name, announcement, showAnnouncement);
+
+        String payload = jsonFromObject(projectModel);
+        log.info("payload created = \r\n" + payload);
+        return payload;
     }
 
     public JSONObject projectAllFieldsPayload(String projectName) {
