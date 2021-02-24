@@ -11,6 +11,10 @@ public class Resources extends MainConfig {
         return read("rs.all_users");
     }
 
+    public static String allSuitesResource() {
+        return read("rs.all_suites");
+    }
+
     public static String addProjectResource() {
         return read("rs.add_project");
     }
