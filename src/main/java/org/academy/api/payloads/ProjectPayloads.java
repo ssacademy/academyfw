@@ -8,4 +8,10 @@ public class ProjectPayloads {
                 "\t\"show_announcement\": true\n" +
                 "}", projectName);
     }
+
+    public String updateProjectPayload(String projectName){
+        return String.format("{\n" +
+                "\t\"name\": \"%s\"\n" +
+                "}", projectName);
+    }
 }
