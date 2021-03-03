@@ -1,22 +1,22 @@
 package org.academy.api.requests;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import io.restassured.response.Response;
-import lombok.extern.slf4j.Slf4j;
 import org.academy.api.payloads.ProjectPayloads;
-import org.json.JSONArray;
+
+import org.academy.utils.api.methods.ConvertMethods;
 import org.json.JSONObject;
 
 public class ProjectRequests extends Requests {
     private final ProjectPayloads projectPayloads = new ProjectPayloads();
 
-    public Map<String, Object> createProjectRequest(String projectName) {
+    public Map<String, Object> createProjectRequest(String projectName, String announcement, boolean showAnnouncement,
+                                                    int... suiteMode) {
         Response response =
-                postMethods.withoutParams(addProjectResource(), projectPayloads.projectPayload(projectName));
+                postMethods.withoutParams(addProjectResource(),
+                        projectPayloads.createProjectPayload(projectName, announcement, showAnnouncement, suiteMode));
 
         JSONObject jsonObject = new JSONObject(response.asString());
         return new HashMap<String, Object>() {
@@ -26,35 +26,25 @@ public class ProjectRequests extends Requests {
         };
     }
 
-    public List<Map<String, Object>> getAllProjectsRequest() {
-        List<Map<String, Object>> objects = new ArrayList<>();
-        Response response = getMethods.withoutParams(allProjectsResource());
-        JSONArray jsonArray = new JSONArray(response.asString());
-        objects.add(new HashMap<String, Object>() {{
-            put("status", response.statusCode());
-        }});
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-            Map<String, Object> obj = new HashMap<>();
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            obj.put("name", jsonObject.get("name"));
-            obj.put("id", jsonObject.get("id"));
-
-            objects.add(obj);
-        }
-
-        return objects;
+    public Map<String, Object> getProjectRequest() {
+        Response response = getMethods.withoutParams(getProjectResource());
+        return ConvertMethods.convertResponseFromServerToHashMap(response);
     }
 
-    public Map<String, Object> updateProjectNameRequest(int projectId, String projectName) {
-        Response response = postMethods.withoutParams(
-                updateProjectResource() + projectId,
-                projectPayloads.updateProjectPayload(projectName));
-        JSONObject jsonObject = new JSONObject(response.asString());
+
+    public Map<String, Object> updateProjectRequest(String projectName, String announcement, boolean showAnnouncement,
+                                                    boolean isCompleted) {
+        Response response =
+                postMethods.withoutParams(updateProjectResource(), projectPayloads.updateProjectPayload(projectName, announcement, showAnnouncement, isCompleted));
+        return ConvertMethods.convertResponseFromServerToHashMap(response);
+        /*JSONObject jsonObject = new JSONObject(response.asString());
         return new HashMap<String, Object>() {
             {
-                put("name", jsonObject.get("name"));
+                put("nameOfProject", jsonObject.get("name"));
+                put("announcementOfProject", jsonObject.get("announcement"));
+                put("showAnnouncementOfProject", jsonObject.get("show_announcement"));
+                put("isCompletedOfProject", jsonObject.get("is_completed"));
             }
-        };
+        }*/
     }
 }

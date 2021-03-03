@@ -11,10 +11,6 @@ public class Resources extends MainConfig {
         return read("rs.all_users");
     }
 
-    public static String allProjectsResource() {
-        return read("rs.all_projects");
-    }
-
     public static String allSuitesResource() {
         return read("rs.all_suites");
     }
@@ -23,7 +19,11 @@ public class Resources extends MainConfig {
         return read("rs.add_project");
     }
 
+    public static String getProjectResource() {
+        return read("rs.get_project").concat("9");
+    }
+
     public static String updateProjectResource() {
-        return read("rs.update_project");
+        return read("rs.update_project").concat("9");
     }
 }
