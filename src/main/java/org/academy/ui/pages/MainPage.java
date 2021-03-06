@@ -1,6 +1,5 @@
 package org.academy.ui.pages;
 
-import org.academy.ui.pages.administration.AdministrationPage;
 import org.academy.ui.pages.administration.OverviewPage;
 import org.openqa.selenium.By;
 
@@ -18,7 +17,7 @@ public class MainPage extends AbstractPage {
     private static final By logout = By.xpath("//a[@id='navigation-user-logout']");
     private static final By addProjectBtn = By.xpath("//a[@id='sidebar-projects-add']");
     private static final By administrationLink = By.xpath("//a[@id='navigation-admin']");
-    private static final By projectLink = By.xpath("//div[@class='summary-title text-ppp']//a[contains(text(),'TestProject')]");
+    private static final By projectLink = By.xpath("//a[contains(text(),'UI Suite Tests')]");
     private static final By navigationUser = By.xpath("//a[@id='navigation-user']//span[@class='caret']");
     private static final By navigationUserSettings = By.xpath("//a[@id='navigation-user-settings']");
     private static final By project = By.xpath("//a[@href='index.php?/projects/overview/20'][contains(.,'TestProject')]");
@@ -43,14 +42,25 @@ public class MainPage extends AbstractPage {
         return new OverviewPage();
     }
 
-    public AddSuitePage clickOnProjectLink() {
-        waitUntilElementIsClickable(projectLink).click();
-        return new AddSuitePage();
+    public SuitePage clickOnProjectLink() {
+        if (webDriver.findElement(projectLink).isDisplayed()) {
+            waitUntilElementIsClickable(projectLink).click();
+        } else {
+            System.err.println("Project 'UI Suite Tests' not found");
+            System.out.println("Creating new project...");
+            waitUntilElementIsClickable(addProjectBtn).click();
+            webDriver.findElement(By.xpath("//input[@id='name']")).sendKeys("UI Suite Tests");
+            webDriver.findElement(By.xpath("//button[@id='accept']")).click();
+            System.out.println("Project 'UI Suite Tests' created");
+            webDriver.findElement(By.xpath("//a[@id='navigation-dashboard']")).click();
+            waitUntilElementIsClickable(projectLink).click();
+        }
+        return new SuitePage();
     }
 
-    public AddTestCasePage clickOnProject() {
+    public TestCasePage clickOnProject() {
         waitUntilElementIsClickable(projectLink).click();
-        return  new AddTestCasePage();
+        return  new TestCasePage();
     }
 
     public AddMilestonePage clickOnTestProject() {
@@ -67,7 +77,7 @@ public class MainPage extends AbstractPage {
         waitUntilElementIsClickable(navigationUserSettings).click();
         return new SettingsPage();
     }
-    public MainPage scrollToProject() throws InterruptedException {
+    public MainPage scrollToProject() {
         scrollToElement(webDriver, webDriver.findElement(project));
         return this;
     }
