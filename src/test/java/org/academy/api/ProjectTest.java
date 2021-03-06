@@ -40,14 +40,14 @@ public class ProjectTest extends BaseTest {
         assertThat(String.valueOf(attributes.get("url"))).isEqualTo("https://ssacd2.testrail.io/index.php?/projects/overview/1");
     }
 
-    @Test
-    public void updateProjectAttributesCase() {
-        String updated_project = "Updated project";
-        Map<String, Object> attributes = projectRequests.updateProjectRequest(updated_project);
-        assertThat(String.valueOf(attributes.get("name"))).isEqualTo(updated_project).as("name of project should be "+updated_project);
-        assertThat(String.valueOf(attributes.get("announcement"))).isEqualTo(ANNOUNCEMENT).as("announcement of project should be Test project");
-        assertThat(String.valueOf(attributes.get("show_announcement"))).isEqualTo(String.valueOf(SHOW_ANNOUNCEMENT)).as("show_announcement field of project should be false");
-        assertThat(String.valueOf(attributes.get("is_completed"))).isEqualTo(String.valueOf(IS_COMPLETED)).as("is_completed field of project should be false");
-    }
+//    @Test
+//    public void updateProjectAttributesCase() {
+//        String updated_project = "Updated project";
+//        Map<String, Object> attributes = projectRequests.updateProjectRequest(updated_project);
+//        assertThat(String.valueOf(attributes.get("name"))).isEqualTo(updated_project).as("name of project should be "+updated_project);
+//        assertThat(String.valueOf(attributes.get("announcement"))).isEqualTo(ANNOUNCEMENT).as("announcement of project should be Test project");
+//        assertThat(String.valueOf(attributes.get("show_announcement"))).isEqualTo(String.valueOf(SHOW_ANNOUNCEMENT)).as("show_announcement field of project should be false");
+//        assertThat(String.valueOf(attributes.get("is_completed"))).isEqualTo(String.valueOf(IS_COMPLETED)).as("is_completed field of project should be false");
+//    }
 }
 
