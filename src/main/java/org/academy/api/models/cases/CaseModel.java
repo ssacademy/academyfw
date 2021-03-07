@@ -1,7 +1,6 @@
 package org.academy.api.models.cases;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jdk.jfr.Timespan;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -30,10 +29,8 @@ public class CaseModel {
   @JsonProperty("custom_steps_seperated")
   private List<Map<String,String>> customStepsSeparated;
 
-  @Timespan
   private Long estimate;
-
-  @Timespan
+  
   @JsonProperty("estimate_forecast")
   private Long estimateForecast;
 
