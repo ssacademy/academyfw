@@ -28,6 +28,8 @@ public class CasesTest extends BaseTest {
 
     @Test
     public void addCase() {
-        casesRequests.createCaseRequest("case4");
+        String caseName = "C".concat("getId()");
+        String caseNameResponse = String.valueOf(casesRequests.createCaseRequest(caseName).get("title"));
+        assertThat(caseNameResponse).isEqualTo(caseName).as("Case name expected: " + caseName);
     }
 }
