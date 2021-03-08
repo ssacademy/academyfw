@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.academy.api.requests.CasesRequests;
 import org.testng.annotations.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Logger;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,13 +14,18 @@ public class CasesTest extends BaseTest {
 
     @Test
     public void getCaseTitle() {
-        String casesTitle = String.valueOf(casesRequests.getAllCasesRequest().get("title"));
-        assertThat(casesTitle.substring(0,4)).isEqualTo("case").as("Case title need to be 'case1'");
+        String casesTitle = casesRequests.getCaseRequest().getOrDefault("title", "null").toString();
+        assertThat(casesTitle).isEqualTo("CgetId()").as("Case title need to be " + casesTitle);
     }
 
     @Test
     public void getAllCases() {
-        casesRequests.getAllCasesRequest();
+        Map<String,Object> allCases = casesRequests.getAllCasesRequest();
+        List<String> caseTitles = new ArrayList<>();
+        for (String value : allCases.keySet()) {
+            caseTitles.add(value);
+        }
+        assertThat(caseTitles.size()).isEqualTo(allCases.size());
     }
 
     @Test

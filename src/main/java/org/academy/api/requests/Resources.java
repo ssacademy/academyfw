@@ -34,4 +34,8 @@ public class Resources extends MainConfig {
     public static String addCaseResource() {
         return read("rs.add_case");
     }
+
+    public static String getCaseResourse() {
+        return read("rs.get_case");
+    }
 }
