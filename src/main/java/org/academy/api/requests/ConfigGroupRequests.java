@@ -1,2 +1,5 @@
-package org.academy.api.requests;public class ConfigGroupRequests {
+package org.academy.api.requests;
+
+public class ConfigGroupRequests extends Requests{
+
 }

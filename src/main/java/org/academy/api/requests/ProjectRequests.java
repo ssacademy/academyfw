@@ -37,14 +37,5 @@ public class ProjectRequests extends Requests {
         Response response =
                 postMethods.withoutParams(updateProjectResource(), projectPayloads.updateProjectPayload(projectName, announcement, showAnnouncement, isCompleted));
         return ConvertMethods.convertResponseFromServerToHashMap(response);
-        /*JSONObject jsonObject = new JSONObject(response.asString());
-        return new HashMap<String, Object>() {
-            {
-                put("nameOfProject", jsonObject.get("name"));
-                put("announcementOfProject", jsonObject.get("announcement"));
-                put("showAnnouncementOfProject", jsonObject.get("show_announcement"));
-                put("isCompletedOfProject", jsonObject.get("is_completed"));
-            }
-        }*/
     }
 }
