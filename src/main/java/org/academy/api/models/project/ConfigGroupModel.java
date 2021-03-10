@@ -9,7 +9,7 @@ public class ConfigGroupModel {
     private int projectId;
     //TODO private List<ConfigModel> configs;
 
-    public ConfigGroupModel() {
+    private ConfigGroupModel() {
     }
 
     public int getId() {

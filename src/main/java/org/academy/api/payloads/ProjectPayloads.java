@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 @Slf4j
 public class ProjectPayloads extends Payload {
-    
+
     public String createProjectPayload(String name, String announcement, boolean showAnnouncement, int... suiteMode) {
 
         ProjectModel projectModel = suiteMode.length > 0
@@ -35,6 +35,18 @@ public class ProjectPayloads extends Payload {
                 .announcement(announcement)
                 .showAnnouncement(showAnnouncement)
                 .isCompleted(isCompleted)
+                .build();
+
+        String payload = jsonFromObject(projectModel);
+        log.info("payload updated = \r\n" + payload);
+        return payload;
+    }
+
+    public String updateProjectPayload(String projectName, String announcement, int suiteMode) {
+        ProjectModel projectModel = new ProjectModel.Builder()
+                .name(projectName)
+                .announcement(announcement)
+                .suiteMode(suiteMode)
                 .build();
 
         String payload = jsonFromObject(projectModel);
