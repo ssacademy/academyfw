@@ -42,4 +42,16 @@ public class Resources extends MainConfig {
     public static String getCaseResourse() {
         return read("rs.get_case");
     }
+
+    public static String addPlanResource() {
+        return read("rs.add_plan");
+    }
+
+    public static String getPlanResource() {
+        return read("rs.get_plan");
+    }
+
+    public static String deleteProjectResource() {
+        return read("rs.delete_project");
+    }
 }

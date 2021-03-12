@@ -86,5 +86,9 @@ public class MainPage extends AbstractPage {
                 .click();
         return new RunsPage();
     }
+    public RunsPage clickOnProject(String projectName) {
+        waitUntilElementIsClickable(By.xpath("//a[contains(.,'" + projectName + "')]")).click();
+        return new RunsPage();
+    }
 }
 

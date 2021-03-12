@@ -28,17 +28,15 @@ public class PostMethods extends Method {
         return response;
     }
 
-    public Response withoutParams(String resource, JSONObject payload) {
+    public Response withoutParams(String resource) {
         RestAssured.baseURI = getAccountUrl();
         Response response = given()
                 .auth().preemptive().basic(getEmail(), getPassword())
                 .contentType(ContentType.JSON)
                 .queryParam(resource)
-                .body(payload)
                 .when()
                 .post(prefixResource())
                 .then()
-                .statusCode(200)
                 .extract()
                 .response();
         log.info("Response returned - {}", response.asString());

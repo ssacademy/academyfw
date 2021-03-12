@@ -15,6 +15,7 @@ public class RunsPage extends AbstractPage {
     private static final By testCases = By.xpath("//a[contains(@id,'sidebar-cases-overview')]");
     private static final By runTestBtn = By.xpath("//span[@class='button-text'][contains(.,'Run Test')]");
     private static final By addTestRunBtn = By.xpath("//button[contains(@id,'accept')]");
+    private static final By addTestPlanBtn = By.xpath("//a[@id='navigation-plans-add']");
 
     public RunsPage clickOnTestCases() {
         waitUntilElementIsClickable(testCases)
@@ -37,5 +38,16 @@ public class RunsPage extends AbstractPage {
         waitUntilElementIsClickable(addTestRunBtn)
                 .click();
         return this;
+    }
+
+    public RunsPage clickOnAddTestPlan(){
+        waitUntilElementIsClickable(addTestPlanBtn)
+                .click();
+        return this;
+    }
+
+    public RunsPage clickOnProjectPlan(String projectName) {
+        waitUntilElementIsClickable(By.xpath("//a[contains(.,'" + projectName + "')]")).click();
+        return new RunsPage();
     }
 }

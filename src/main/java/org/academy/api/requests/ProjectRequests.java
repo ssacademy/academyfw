@@ -29,6 +29,17 @@ public class ProjectRequests extends Requests {
         };
     }
 
+    public Map<String, Object> createProjectRequestHM(String projectName, String announcement, boolean showAnnouncement,
+                                                    int... suiteMode) {
+        Response response =
+                postMethods.withoutParams(addProjectResource(),
+                        projectPayloads.createProjectPayload(projectName, announcement, showAnnouncement, suiteMode));
+
+        JSONObject jsonObject = new JSONObject(response.asString());
+        return ConvertMethods.convertResponseFromServerToHashMap(response);
+    }
+
+
     public Map<String, Object> getProjectRequest() {
         Response response = getMethods.withoutParams(getProjectResource());
         return ConvertMethods.convertResponseFromServerToHashMap(response);
@@ -51,5 +62,9 @@ public class ProjectRequests extends Requests {
                 updateProjectResource(projectId),
                 projectPayloads.updateProjectPayload(projectName, announcement, suiteMode));
         return ConvertMethods.convertResponseFromServerToHashMap(response);
+    }
+    public void deleteProjectRequest(Integer projectId) {
+        //TODO: format resource string properly
+        postMethods.withoutParams(deleteProjectResource() + projectId);
     }
 }
